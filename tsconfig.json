@@ -23,6 +23,7 @@
       "@database/*": ["src/database/*"],
       "@services/*": ["src/services/*"],
       "@common/*": ["src/common/*"],
+      "@modules/*": ["src/modules/*"],
       "@utils/*": ["src/utils/*"],
       "@tests/*": ["test/*"],
     }

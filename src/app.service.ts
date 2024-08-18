@@ -1,5 +1,5 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { db } from './database/drizzle.config';
+import { db } from '@modules/postgres.module';
 
 @Injectable()
 export class AppService {
