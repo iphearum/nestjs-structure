@@ -3,6 +3,11 @@ import { relations } from 'drizzle-orm';
 
 export const users = pgTable('users', {
   id: serial('id').primaryKey(),
+  username: text('username').unique(),
+  password: text('password'),
+  first_name: text('first_name'),
+  last_name: text('last_name'),
+  phone: text('phone').unique(),
   email: text('email').unique(),
   role_id: integer('role_id'),
 });

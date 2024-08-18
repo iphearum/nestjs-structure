@@ -1,23 +1,5 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { AnyTable } from 'drizzle-orm';
-import { migrate } from 'drizzle-orm/postgres-js/migrator';
-import postgres from 'postgres';
-import * as schema from './drizzle/schema';
-import { Client } from "pg";
-
-// or
-const client = new Client({
-  host: process.env.DATABASE_HOST,
-  port: Number(process.env.DATABASE_PORT),
-  user: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE_NAME,
-});
-
-async function connectToDatabase() {
-  await client.connect();
-}
+import { db } from './database/drizzle.config';
 
 @Injectable()
 export class AppService {
@@ -25,11 +7,7 @@ export class AppService {
   // protected table;
 
   constructor(protected readonly table: any) {
-    connectToDatabase();
-    this.db = drizzle(client,{
-      schema,
-      logger: true,
-    });
+    this.db = db;
   }
 
   async create(object: any) {
