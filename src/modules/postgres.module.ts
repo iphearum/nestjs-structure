@@ -11,7 +11,7 @@ export const dbCredentials = {
   ssl: {
     rejectUnauthorized: false, // Allow self-signed certificates
   },
-}
+};
 
 export const client = new Client(dbCredentials);
 
